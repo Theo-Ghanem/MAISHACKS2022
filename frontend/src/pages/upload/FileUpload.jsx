@@ -1,31 +1,18 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 
-export default function FileUpload() {
+export default function FileUpload({ setFile }) {
   const [selectedFile, setSelectedFile] = useState();
   const [isSelected, setIsSelected] = useState(false);
-  const [jobDescription, setJobDescription] = useState();
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
+    setFile(event.target.files[0]);
     setIsSelected(true);
-  };
-
-  const handleSubmission = () => {
-    console.log(selectedFile);
   };
 
   return (
     <div>
-      <TextField
-        onChange={(e) => setJobDescription(e.target.value)}
-        id="outlined-multiline-static"
-        label="Multiline"
-        multiline
-        rows={4}
-        defaultValue="Default Value"
-      />
-
       <input type="file" name="file" onChange={changeHandler} />
       {isSelected ? (
         <div>
@@ -40,9 +27,6 @@ export default function FileUpload() {
       ) : (
         <p>Select a file to show details</p>
       )}
-      <div>
-        <button onClick={handleSubmission}>Submit</button>
-      </div>
     </div>
   );
 }
