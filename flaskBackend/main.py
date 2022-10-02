@@ -1,18 +1,19 @@
 #app/main.py
 
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from utils.similarities import getSimilarity
 
 app = Flask(__name__)
 CORS(app)
-
+# flask_cors.CORS(app, expose_headers='Authorization')
 @app.route("/")
 def home_view():
-        return "<h1>Hello World!</h1>"
+    return "<h1>Hello World!</h1>"
 
 
 @app.route('/similarity', methods = ['POST'])
+@cross_origin()
 def similarity():
     data = getSimilarity(request.json['words'], request.json['sentences'])
     return jsonify(data)
@@ -52,4 +53,4 @@ def similarity():
 #     app.secret_key = os.urandom(24)
 #     app.run(debug=True,host="0.0.0.0",use_reloader=False)
 
-# flask_cors.CORS(app, expose_headers='Authorization')
+
