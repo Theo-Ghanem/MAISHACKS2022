@@ -2,6 +2,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 import docx2txt
 
+
 def get_resume(filename):
     if filename.endswith('.docx'):
         return docx2txt.process(filename)
@@ -17,9 +18,10 @@ def get_similarity(text1, text2):
 
 
 def main():
-    resume = get_resume("python_resume.docx")
+    resume = get_resume("test1.txt")
+    # resume = get_resume("python_resume.docx")
     # jobDescription = get_resume("job_description.docx")
-    jobDescription = get_resume("jobDescription.txt")
+    jobDescription = get_resume("test2.txt")
     # jobDescription = input("Enter the job description: ")
 
     # A list of text
@@ -27,10 +29,11 @@ def main():
     cv = CountVectorizer()
     count_matrix = cv.fit_transform(text)
 
-    #get the match percentage
+    # get the match percentage
     matchPercentage = cosine_similarity(count_matrix)[0][1] * 100
     matchPercentage = round(matchPercentage, 2)  # round to two decimal
-    print("Your resume matches about " + str(matchPercentage) + "% of the job description.")
+    print("Your resume matches about " +
+          str(matchPercentage) + "% of the job description.")
 
 
 if __name__ == '__main__':
