@@ -1,0 +1,94 @@
+Given a job description, this program will extract a list of applicable skills to the job
+
+Job Description: 
+Join us!
+Do you love writing C++ code and want to be part of a self-driven team that continuously improves its development practices? If so, this opportunity may be what you are looking for!
+What’s in it for you?
+4 weeks of annual vacation
+5 personal days
+Subsidized Health and Dental Insurance
+RRSP matching program
+Bonus and restricted stock programs
+Hybrid working model
+Employee and Family Assitance Program
+What you"ll be working on:
+Software design and development for current and future Mirametrix product lines;
+Take part in continuous efforts to improve our development workflow;
+Development of demos and proofs of concept;
+Integrate new attention sensing engine capabilities in our application’s features;
+Learn to develop applications that respond to the user's attention efficiently and naturally;
+Experience And Qualifications you have:
+B.Sc or equivalent;
+3+ years in software application development or equivalent (required);
+Strong skills in C++ 11 and up (required)
+Development on Windows (required)
+Strong understanding of object-oriented design (required)
+Skills in Python
+Experience with CMake
+Familiarity with management of open-source libraries
+Experience with Continuous Integration environments (release every 2 weeks)
+Experience developing mass-market products is an asset
+We value personal projects, internships and non-curricular student activities;
+Company Profile
+Lattice Semiconductor (NASDAQ: LSCC) is the global leader in smart connectivity solutions, providing market leading intellectual property and low-power, small form-factor devices that enable more than 8,000 global customers to quickly deliver innovative and differentiated cost and power efficient products. Mirametrix was acquired by Lattice Semiconductor in late 2021. This position is for the Montréal based Mirametrix office. Mirametrix develops state-of-the-art attention sensing and gaze tracking software, using innovative cutting-edge artificial intelligence in computer vision. As a leader in attention sensing, our goal is to enable hands-free user interaction on the next generation of computers and digital devices. We support some of the biggest consumer electronics brands by making their devices smarter and more intuitive. Lattice Semiconductor is an EEO/Affirmative Action Employer and does not discriminate on the basis of race, color, religion, sex, sexual orientation, gender identity, national origin, protected veteran status, disability or any other legally protected status
+
+Skills: software application development, C++, Object-Oriented Design, Python, CMake, Continous Integration, artificial intelligence, Computer Vision
+--
+Job Description:
+Passionate about IT? Fairstone is the first Canadian financial institution operating 100% in the AWS Cloud. If you want to be part of our technology team’s journey, where nimbleness and creativity are our daily tasks. Check out this great opportunity!
+Responsibilities:
+Collaborate with other developers and engineers to maintain and build applications
+Build serverless applications using AWS Cloud
+Troubleshoot and solve software issues
+Work in a cloud computing environment; understand the philosophy and methodology of cloud computing; understand and master Amazon Web Services (AWS)
+Your wellness is our priority
+To protect your health and wellness, Fairstone will conduct recruitment digitally for this position. You will receive virtual onboarding and training and will initially work remotely with the Fairstone team. We look forward to introducing you to the team at Fairstone’s downtown Montreal headquarters once physical distancing measures are lifted.
+You are the ideal candidate if:
+You have a Bachelor’s degree in computer science, software engineering, or a related field
+You have experience writing code in TypeScript (React, Node)
+You have experience using SQL to update and retrieve data
+You have experience with database management and security a plus
+You have demonstrated experience with AWS Services a plus
+You have good analytical skills
+You have good communication skills
+You are bilingual.
+What’s in it for you?
+At Fairstone, we offer all our permanent employees:
+A minimum of 3 weeks paid vacation (prorated to your start date)
+Wellness days
+Employee referral program $2000.00 or more.
+Great Benefit Program (flexible health and dental benefits, access to virtual health care provider Dialogue, pension plan and much more!)
+Ongoing Learning and development Training
+Tuition Assistance Programs
+Paid volunteer day and organized volunteering event across the country
+A growing company with potential for personal growth and career advancement.
+And Much more.
+If you’re seeking a role with a growing business that values employee development, Fairstone is the right place for you!
+Come join our team!
+Fairstone is an equal opportunity employer. Accordingly, we will make reasonable accommodations to respond to the needs of people with disabilities. Individuals who view themselves as Aboriginals, members of visible minorities, and disabled are encouraged to apply in confidence.
+
+Skills: Computer Science, Software Engineering, TypeScript, React, Node, SQL, database management, AWS, analytical, communication, bilingual
+--
+Job Description: 
+Biospective is currently seeking a software developer for its in-house software development program.
+The candidate will be asked to develop and implement a wide variety of software tools, ranging from data management utilities to special-purpose image processing utilities. The software will be implemented on a Linux platform following Biospective's coding standards and Software Development Life Cycle (SDLC) processes as applicable. Biospective Inc. maintains a Quality Management System which requires adherence to Standard Operating Procedures and systems and software validation.
+The ideal candidate will be fluent in C/C++, Perl, and Python, will be familiar with SDLC processes and have knowledge of medical image processing technologies.
+The main responsibility for this position are the following:
+Develop software utilities (e.g., scripts) for data management and processing
+Participate in software testing
+Implement production-level software based on internal R&D prototypes
+Participate in/perform software/system validation/documentation
+Skills and Requirements
+Practical knowledge of Perl, Python, and C/C++
+Prior experience with a Linux/Unix platform
+Prior experience with structured software development
+Assets
+Prior software testing experience
+Basic knowledge of SQL
+Prior experience using NumPy and pandas Python libraries
+Medical imaging and image processing
+MINC (Medical Image NetCDF) file format
+Image visualization
+Ubuntu Linux
+
+Skills:

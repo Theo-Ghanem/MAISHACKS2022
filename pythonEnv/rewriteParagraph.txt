@@ -1,0 +1,47 @@
+Given a paragraph, and keywords, add the keywords into the paragraph
+
+Paragraph:
+Developed a social-networking mobile and online application for students and local advertisers. 
+Developed code using frontend and backend with AWS and Google
+Recruited business partners, developed a business plan, and was selected for the McGill Dobson Centre for Entrepreneurship Lean Startup program cohort 2021/22
+
+Keywords: React Native, Full Stack
+
+Output:
+Developed a social-networking mobile and online application for students and local advertisers. 
+Developed full stack code using frontend with React Native and backend with AWS and Google
+Recruited business partners, developed a business plan, and was selected for the McGill Dobson Centre for Entrepreneurship Lean Startup program cohort 2021/22
+--
+Paragraph:
+Developed full stack code (JavaScript, React, Node.js, Express.js, Nest.js, TypeORM and MySQL) for an internal retrospective web application tool (Royal Retro)
+Worked with with peers, facilitated daily sub-team Agile sprint meetings, and presented status updates at weekly 30+ team member review meetings
+Created application requirements, determined functional specifications, tracked and resolved technical issues, and presented front-end/back-end features of the tool
+Conducted research through user interviews, improvement, and feedback to improve workflow and brand consistency of the product
+
+Keywords: TypeScript, Collaberation, Agile, Requirements, continuous integration
+
+Output:
+Developed full stack code (JavaScript, TypeScript, React, Node.js, Express.js, Nest.js, TypeORM and MySQL) for an internal retrospective web application tool (Royal Retro)
+Collaberated with peers, facilitated daily sub-team meetings, and presented status updates at weekly 30+ team member review meetings
+Created application functional specifications, tracked and resolved technical issues, and presented front-end/back-end features of the tool
+Conducted research through user interviews for continuous UI/UX iteration, improvement, and feedback to improve workflow and brand consistency of the product
+--
+Paragraph:
+Developed an application to monitor RBC’s 300+ automation bots (front end using React and backend using C#, .NET Core, Elastic Search and Docker)
+Collaborated with team members to achieve objectives of streamlining automated process 
+Presented project weekly status updates to team and final project solutions to executive team 
+
+Keywords: Full Stack, SQL
+
+Output:
+Developed a full stack application to monitor RBC’s 300+ automation bots (front end using React and backend using C#, .NET Core, Elastic Search, SQL and Docker)
+Collaborated with team members to achieve objectives of streamlining automated process 
+Presented project weekly status updates to team and final project solutions to executive team 
+--
+Paragraph:
+Representative for ECSE student body at Junior and ECSE Council weekly meetings
+Address student issues/concerns and plan events at council meetings
+
+Keywords: agile, communication
+
+Output:
