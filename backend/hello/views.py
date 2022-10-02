@@ -5,6 +5,7 @@ import json
 from .models import Greeting
 from .utils.forms import UploadFileForm
 from .utils.parseDocx import parseDocx
+from .utils.similarities import getSimilarity
 import logging
 from django.core.files.storage import default_storage    
 from django.core.files.base import ContentFile
@@ -24,6 +25,16 @@ def db(request):
     greetings = Greeting.objects.all()
 
     return render(request, "db.html", {"greetings": greetings})
+
+@csrf_exempt 
+def similarity(request):
+    if request.method == 'POST':
+        jsonBody = json.loads(request.body.decode('utf-8'))
+        words = jsonBody['words']
+        sentences = jsonBody['sentences']
+        similarity = getSimilarity(words, sentences)
+        return HttpResponse(similarity)
+    return None
 
 @csrf_exempt 
 def upload(request):

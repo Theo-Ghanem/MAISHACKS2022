@@ -25,7 +25,8 @@ def main():
     # jobDescription = input("Enter the job description: ")
 
     # A list of text
-    text = [resume, jobDescription]
+    # text = [resume, jobDescription]
+    text = ['Participated in CodeJam to create a chrome extension using sentiment analysis', 'Coding']
     cv = CountVectorizer()
     count_matrix = cv.fit_transform(text)
 
