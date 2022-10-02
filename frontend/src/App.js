@@ -76,7 +76,14 @@ function App() {
 
       <div className="App" style={{ width: "40%" }}>
         {pageCounter === 0 && <Upload nextPage={nextPage} />}
-        {pageCounter === 1 && (
+        {pageCounter === 1 && <Upload nextPage={nextPage}/> &&(
+          <Customize
+            wordList={sampleWordList}
+            goBack={() => setPageCounter(0)}
+            submitList={() => {}}
+          />
+        )}
+        {pageCounter === 2 && <Upload nextPage={nextPage}/> &&(
           <Customize
             wordList={sampleWordList}
             goBack={() => setPageCounter(0)}

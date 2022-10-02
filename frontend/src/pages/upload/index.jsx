@@ -16,7 +16,7 @@ export default function Upload({ nextPage }) {
     formData.append("File", file);
     fetch('http://localhost:5000/upload', {
       method: 'POST',
-      body: data,
+      body: formData,
     }).then((response) => {
       response.json().then((body) => {
        console.log(body)
@@ -24,7 +24,7 @@ export default function Upload({ nextPage }) {
     });
   
 
-    return data;
+    return formData;
   };
 
   const ColorButton = styled(Button)(({ theme }) => ({
