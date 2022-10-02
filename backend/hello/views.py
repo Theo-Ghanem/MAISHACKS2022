@@ -20,7 +20,9 @@ def db(request):
 
 def upload(request):
     # resp = JsonResponse(parseDocx(request.body.resume))
-    resp = request.body.resume
-    # resp['Access-Control-Allow-Origin'] = '*'
-    print(resp)
-    return resp
+    resp = []
+    if(request.method == 'POST'):
+        resp = request.body.resume
+        # resp['Access-Control-Allow-Origin'] = '*'
+        print(resp)
+    return HttpResponse(resp)
