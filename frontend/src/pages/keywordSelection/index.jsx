@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import "./Keywords.css";
 import Button from '@mui/material/Button';
 import { fontSize } from "@mui/system";
 import Typography from "@mui/material/Typography";
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import { styled } from '@mui/material/styles';
+import "./index.css";
 
 export default function Customize({ goBack, wordList, submitList }) {
   const [newList, setNewList] = useState(wordList);
@@ -34,6 +34,7 @@ export default function Customize({ goBack, wordList, submitList }) {
   const ColorButton = styled(Button)(({ theme }) => ({
     color: "#000000",
     backgroundColor:"#A1B251",
+    marginTop: "3%",
     marginRight: "8%",
     fontFamily: "Rounded Mplus",
     '&:hover': {
@@ -46,12 +47,16 @@ export default function Customize({ goBack, wordList, submitList }) {
 
   return (
     <div>
-      <div className="subtitle">
+      <div className="sub">
            Here are the suggested keywords from your job description. Select the ones that you would like to include.
           </div>
       <FormGroup >
         {wordList.map((word) => (
           <FormControlLabel
+          sx={{
+            paddingLeft: "38%",
+            
+            }}
             control={
               <Checkbox
               sx={{
@@ -64,7 +69,7 @@ export default function Customize({ goBack, wordList, submitList }) {
                 onChange={() => toggleWord(word)}
               />
             }
-            label={<Typography sx={{fontFamily: "Rounded Mplus"}}>word</Typography>}
+            label={<Typography sx={{fontFamily: "Rounded Mplus"}}>{word}</Typography>}
             />
         ))}
       </FormGroup>

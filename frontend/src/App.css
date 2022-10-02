@@ -17,6 +17,25 @@
   
 }
 
+.logo2{
+  width: 10%;
+  height: 10%;
+  padding: 2% 2% 0% 2%;
+  
+}
+.title2 {
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 3vw;
+  color: #000000;
+  border-radius: 0px;
+  margin: 0px 0px;
+  padding: 4% 0% 0% 0%;
+  vertical-align: middle;
+  
+}
+
 .title {
   font-family: Rounded Mplus 1c Bold;
   font-style: normal;
@@ -41,7 +60,17 @@
   color: #000000;
   text-align: center;
 }
-s
+
+.subtitle2{
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 3vw;
+  padding-top: 10%;
+  color: #000000;
+  text-align: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

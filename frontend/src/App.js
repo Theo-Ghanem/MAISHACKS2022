@@ -57,18 +57,26 @@ function App() {
   return (
     <div style={{ display: "flex" }}>
       <div style={{ width: "60%" }}>
-        <div className="title">
-          <img className="logo" src={logo}></img>
-          Let's Season Your CV!
-        </div>
         {pageCounter === 0 ? (
-          <div className="subtitle">
-            Get started by uploading your CV <br></br> and your job description
-            on the right
+          <div>
+            <div className="title">
+              <img className="logo" src={logo}></img>
+              Let's Season Your CV!
+            </div>
+            <div className="subtitle">
+              Get started by uploading your CV <br></br> and your job
+              description on the right
+            </div>
           </div>
         ) : (
-          <div className="subtitle">
-            Pick and choose the keywords<br></br>you would like to include
+          <div>
+            <div style={{ display: "flex"}}>
+              <img className="logo2" src={logo}></img>
+              <div className="title2">Season My CV</div>
+            </div>
+            <div className="subtitle2">
+              Pick and choose the keywords<br></br>you would like to include
+            </div>
           </div>
         )}
         <img className="seasonings" src={seasonings}></img>
@@ -76,14 +84,14 @@ function App() {
 
       <div className="App" style={{ width: "40%" }}>
         {pageCounter === 0 && <Upload nextPage={nextPage} />}
-        {pageCounter === 1 && <Upload nextPage={nextPage}/> &&(
+        {pageCounter === 1 && <Upload nextPage={nextPage} /> && (
           <Customize
             wordList={sampleWordList}
             goBack={() => setPageCounter(0)}
             submitList={() => {}}
           />
         )}
-        {pageCounter === 2 && <Upload nextPage={nextPage}/> &&(
+        {pageCounter === 2 && <Upload nextPage={nextPage} /> && (
           <Customize
             wordList={sampleWordList}
             goBack={() => setPageCounter(0)}
