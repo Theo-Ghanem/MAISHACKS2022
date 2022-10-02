@@ -2,7 +2,7 @@ import logo from "./logo.png";
 import "./App.css";
 import { useState } from "react";
 import Upload from "./pages/upload";
-import Customize from "./pages/customize";
+import Customize from "./pages/keywordSelection";
 import seasonings from "./seasonings.png";
 import Correlation from "./pages/correlation";
 
@@ -77,7 +77,14 @@ function App() {
 
       <div className="App" style={{ width: "40%" }}>
         {pageCounter === 0 && <Upload nextPage={nextPage} />}
-        {pageCounter === 1 && (
+        {pageCounter === 1 && <Upload nextPage={nextPage}/> &&(
+          <Customize
+            wordList={sampleWordList}
+            goBack={() => setPageCounter(0)}
+            submitList={() => {}}
+          />
+        )}
+        {pageCounter === 2 && <Upload nextPage={nextPage}/> &&(
           <Customize
             wordList={sampleWordList}
             goBack={() => setPageCounter(0)}
