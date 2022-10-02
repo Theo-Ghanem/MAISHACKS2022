@@ -21,4 +21,5 @@ def db(request):
 def upload(request):
     resp = JsonResponse(parseDocx(request.body.resume))
     resp['Access-Control-Allow-Origin'] = '*'
+    print(resp)
     return resp
