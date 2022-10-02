@@ -14,6 +14,8 @@ import dj_database_url
 import os
 from django.test.runner import DiscoverRunner
 from pathlib import Path
+import django_heroku
+from corsheaders.defaults import default_headers
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -55,7 +57,7 @@ INSTALLED_APPS = [
     "hello",
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE= [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
@@ -72,17 +74,7 @@ ROOT_URLCONF = "gettingstarted.urls"
 CORS_ORIGINS_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_EXPOSE_HEADERS = ["Set-cookie", "Vary", "Date"]
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'aceept_encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
+CORS_ALLOW_HEADERS = list(default_headers)
 CORS_ALLOW_METHODS = (
     'DELETE',
     'GET', 
