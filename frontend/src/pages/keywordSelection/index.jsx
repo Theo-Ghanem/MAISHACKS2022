@@ -3,7 +3,6 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import "./Keywords.css";
-import { Button } from "@mui/material";
 
 export default function Customize({ goBack, wordList, submitList }) {
   const [newList, setNewList] = useState(wordList);
@@ -31,8 +30,7 @@ export default function Customize({ goBack, wordList, submitList }) {
       <button onClick={goBack}>Go Back</button>
       <button onClick={print}>Print</button>
       <FormGroup>
-        {/* need to be able to iterate through the keywords of the job description */}
-
+        {/* iterate through the keywords of the job description */}
         {wordList.map((word) => (
           <FormControlLabel
             control={
