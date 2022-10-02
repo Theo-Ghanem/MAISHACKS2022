@@ -17,7 +17,7 @@ const sampleResume = [
       },
       {
         title: "High School Diploma",
-        description: "Graduated with a 3.8 GPA",
+        description: "Graduated with a 3 GPA",
       },
     ],
   },
@@ -36,24 +36,17 @@ const sampleResume = [
   },
 ];
 
-const sampleWordList = [
-  "Software Engineer",
-  "Web Developer",
-  "Frontend Engineer",
-  "React",
-  "Team Work",
-  "Agile",
-];
-
 function App() {
   const [pageCounter, setPageCounter] = useState(0);
   const [resume, setResume] = useState(sampleResume);
   const [description, setDescription] = useState(null);
+  const [selectedWords, setSelectedWords] = useState([]);
+  const [wordList, setWordList] = useState([]);
 
-  const nextPage = (res) => {
+  const nextPage = (keywords, resume) => {
     setPageCounter(pageCounter + 1);
-    setResume(res.resume);
-    setDescription(res.description);
+    setResume(resume);
+    setWordList(keywords);
   };
 
   return (
@@ -81,23 +74,28 @@ function App() {
             </div>
           </div>
         )}
-        <img className="seasonings" src={seasonings}></img>
+        <img
+          style={{ position: "absolute", bottom: 0, left: 0 }}
+          className="seasonings"
+          src={seasonings}
+        ></img>
       </div>
 
       <div className="App" style={{ width: "40%" }}>
         {pageCounter === 0 && <Upload nextPage={nextPage} />}
         {pageCounter === 1 && (
           <KeywordSelection
-            wordList={sampleWordList}
+            wordList={wordList}
             goBack={() => setPageCounter(0)}
-            submitList={() => {
+            submitList={(list) => {
+              setSelectedWords(list);
               setPageCounter(2);
             }}
           />
         )}
         {pageCounter === 2 && (
           <Correlation
-            wordList={sampleWordList}
+            wordList={selectedWords}
             resume={sampleResume}
             goBack={() => setPageCounter(1)}
           />

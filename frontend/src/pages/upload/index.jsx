@@ -6,6 +6,7 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import ColorButton from "../../components/CustomButton";
+import { uploadDescription } from "../../services/API";
 
 export default function Upload({ nextPage }) {
   const [file, setFile] = useState();
@@ -47,6 +48,11 @@ export default function Upload({ nextPage }) {
     }
     setLoading(false);
   };
+  const newSubmission = async () => {
+    const resp = await uploadDescription(jobDescription);
+    console.log(resp);
+    nextPage(resp, null);
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -78,7 +84,7 @@ export default function Upload({ nextPage }) {
           background-color="#282c34"
           multiline
           rows={10}
-          defaultValue="Replace this text with your dream job description :)"
+          placeholder="Replace this text with your dream job description :)"
         />
       </div>
       <FileUpload setFile={setFile} />
@@ -88,7 +94,7 @@ export default function Upload({ nextPage }) {
         variant="contained"
         InputProps={{ style: { marginLeft: "10%" } }}
         endIcon={<SendIcon />}
-        onClick={handleSubmission}
+        onClick={newSubmission}
       >
         Spice It Up!
       </ColorButton>

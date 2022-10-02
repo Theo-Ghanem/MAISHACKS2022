@@ -1,5 +1,6 @@
 #app/main.py
 
+from urllib import response
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from flask import Flask, flash, request, redirect, url_for, session
@@ -10,17 +11,19 @@ from utils.parseDocx import parseDocx
 from werkzeug.utils import secure_filename
 import openai
 from io import BytesIO
+from utils.insertKeys import finishResume
+from utils.parseDescription import getKeywords
 
 app = Flask(__name__)
 CORS(app)
-
+# flask_cors.CORS(app, expose_headers='Authorization')
 @app.route("/")
 def home_view():
-        return "<h1>Hello World!</h1>"
+    return "<h1>Hello World!</h1>"
 
 
 @app.route('/similarity', methods = ['POST'])
-@cross_origin
+@cross_origin()
 def similarity():
     data = getSimilarity(request.json['words'], request.json['sentences'])
     return jsonify(data)
@@ -30,10 +33,14 @@ def similarity():
 def insertKeys():
     response = []
     for i in range(len(request.json)):
-        req = insertKeys(request.json[i]['words'], request.json[i]['paragraph'])
-        fixedPhrase = openai.Completion.create(model="text-davinci-002", prompt=req, temperature=0, max_tokens=100)
+        fixedPhrase = finishResume(request.json[i]['words'], request.json[i]['paragraph'])
         response.append(fixedPhrase)
     
+    return jsonify(response)
+@app.route('/description', methods = ['POST'])
+def parseDesc():
+    des = request.json['description']
+    response = getKeywords(des)
     return jsonify(response)
 # import os
 # from flask import Flask, flash, request, redirect, url_for, session
@@ -100,4 +107,4 @@ def upload():
 #     app.secret_key = os.urandom(24)
 #     app.run(debug=True,host="0.0.0.0",use_reloader=False)
 
-# flask_cors.CORS(app, expose_headers='Authorization')
+

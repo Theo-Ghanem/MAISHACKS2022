@@ -1,10 +1,11 @@
-html, 
+html,
 body {
   margin: 0;
   height: 100%;
+  background-color: #cda992;
 }
 
-#root{
+#root {
   height: 100%;
-  background-color: #CDA992;
+  background-color: #cda992;
 }
