@@ -49,6 +49,7 @@ function App() {
   const [pageCounter, setPageCounter] = useState(0);
   const [resume, setResume] = useState(sampleResume);
   const [description, setDescription] = useState(null);
+  const [selectedWords, setSelectedWords] = useState([]);
 
   const nextPage = (res) => {
     setPageCounter(pageCounter + 1);
@@ -81,7 +82,11 @@ function App() {
             </div>
           </div>
         )}
-        <img className="seasonings" src={seasonings}></img>
+        <img
+          style={{ position: "absolute", bottom: 0, left: 0 }}
+          className="seasonings"
+          src={seasonings}
+        ></img>
       </div>
 
       <div className="App" style={{ width: "40%" }}>
@@ -90,14 +95,15 @@ function App() {
           <KeywordSelection
             wordList={sampleWordList}
             goBack={() => setPageCounter(0)}
-            submitList={() => {
+            submitList={(list) => {
+              setSelectedWords(list);
               setPageCounter(2);
             }}
           />
         )}
         {pageCounter === 2 && (
           <Correlation
-            wordList={sampleWordList}
+            wordList={selectedWords}
             resume={sampleResume}
             goBack={() => setPageCounter(1)}
           />
