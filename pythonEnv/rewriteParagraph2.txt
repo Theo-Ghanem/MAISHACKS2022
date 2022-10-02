@@ -1,0 +1,5 @@
+Developed a social-networking mobile and online application for students and local advertisers. 
+Developed code using frontend and backend with AWS and Google
+Recruited business partners, developed a business plan, and was selected for the McGill Dobson Centre for Entrepreneurship Lean Startup program cohort 2021/22
+
+Add React Native, Full Stack into the paragraph:
