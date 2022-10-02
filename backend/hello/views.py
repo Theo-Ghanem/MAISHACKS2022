@@ -19,7 +19,8 @@ def db(request):
     return render(request, "db.html", {"greetings": greetings})
 
 def upload(request):
-    resp = JsonResponse(parseDocx(request.body.resume))
-    resp['Access-Control-Allow-Origin'] = '*'
+    # resp = JsonResponse(parseDocx(request.body.resume))
+    resp = request.body.resume
+    # resp['Access-Control-Allow-Origin'] = '*'
     print(resp)
     return resp
