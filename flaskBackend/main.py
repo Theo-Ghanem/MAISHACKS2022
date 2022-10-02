@@ -27,6 +27,7 @@ def similarity():
     return jsonify(data)
 
 @app.route('/insertKeys', methods = ['POST'])
+@cross_origin()
 def insertKeys():
     response = []
     for i in range(len(request.json)):
@@ -35,6 +36,7 @@ def insertKeys():
     
     return jsonify(response)
 @app.route('/description', methods = ['POST'])
+@cross_origin()
 def parseDesc():
     des = request.json['description']
     response = getKeywords(des)
