@@ -65,7 +65,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "corsheaders.middleware.CorsMiddleware",
-    "hello.middleware.corsMiddleware",
 ]
 
 ROOT_URLCONF = "gettingstarted.urls"
