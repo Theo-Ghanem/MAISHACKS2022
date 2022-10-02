@@ -1,8 +1,9 @@
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import "./App.css";
 import { useState } from "react";
 import Upload from "./pages/upload";
 import Customize from "./pages/customize";
+import seasonings from "./seasonings.png"
 
 const sampleResume = [
   {
@@ -45,16 +46,29 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {pageCounter === 0 && <Upload nextPage={nextPage} />}
-      {pageCounter === 1 && (
-        <Customize
-          resume={resume}
-          description={description}
-          goBack={() => setPageCounter(0)}
-        />
-      )}
+    <div style={{display: "flex" }}>
+        <div>
+          <div className="title">
+            <img className="logo" src={logo}></img>
+            Let's Season Your CV!
+          </div>
+          <div className="subtitle">Get started by uploading your CV <br></br> and your job description on the right</div>
+        <img className="seasonings" src={seasonings}></img>
+      </div>
+      
+      <div className="App">
+        {pageCounter === 0 && <Upload nextPage={nextPage} />}
+        {pageCounter === 1 && (
+          <Customize
+            resume={resume}
+            description={description}
+            goBack={() => setPageCounter(0)}
+          />
+        )}
+      </div>
     </div>
+
+    
   );
 }
 

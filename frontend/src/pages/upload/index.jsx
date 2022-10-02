@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import FileUpload from "./FileUpload";
 import API from "../../services/API.js";
+import SendIcon from '@mui/icons-material/Send';
 
 export default function Upload({ nextPage }) {
   const [file, setFile] = useState();
@@ -27,16 +28,20 @@ export default function Upload({ nextPage }) {
   }
   return (
     <div style={{ paddingTop: "10px" }}>
-      <TextField
+      <div style={{ backgroundColor: "#B3442B", marginTop: "30px", marginRight: "100px", width: "400px" }}>
+      <TextField fullWidth
+        InputProps={{ style: {fontFamily: "Rounded Mplus", textAlign: "center", fontSize: "20"} }}
         onChange={(e) => setJobDescription(e.target.value)}
         id="outlined-multiline-static"
-        label="Multiline"
+        label=""
+        background-color = "#282c34"
         multiline
-        rows={4}
-        defaultValue="Default Value"
+        rows={10}
+        defaultValue="Upload your file here"
       />
+      </div>
       <FileUpload setFile={setFile} />
-      <Button onClick={handleSubmission}>Submit</Button>
+      <Button variant="contained" color="success" endIcon={<SendIcon />} onClick={handleSubmission}>Spice It Up!</Button>
     </div>
   );
 }
