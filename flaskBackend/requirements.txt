@@ -1,5 +1,2 @@
 gunicorn
-sentence-transformers
-torch
-transformers
 flask
