@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 
 export default function FileUpload({ setFile }) {
@@ -6,10 +6,14 @@ export default function FileUpload({ setFile }) {
   const [isSelected, setIsSelected] = useState(false);
 
   const changeHandler = (event) => {
+    console.log(JSON.stringify(event.target.files[0]));
     setSelectedFile(event.target.files[0]);
     setFile(event.target.files[0]);
     setIsSelected(true);
   };
+  useEffect(() => {
+    console.log("File UPLOADED", selectedFile);
+  }, [selectedFile]);
 
   return (
     <div>

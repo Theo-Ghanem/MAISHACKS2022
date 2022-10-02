@@ -5,3 +5,4 @@ whitenoise>=6.0,<7.0
 psycopg2>=2.0,<3.0
 lxml>=2.3.2
 python-docx
+django-cors-headers

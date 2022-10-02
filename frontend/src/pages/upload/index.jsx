@@ -12,8 +12,8 @@ export default function Upload({ nextPage }) {
   const handleSubmission = async () => {
     setLoading(true);
     try {
-      //   const result = await API.uploadResumeAndDescription(file, jobDescription);
-      const result = { resume: "", description: "" };
+      const result = await API.uploadResumeAndDescription(file, jobDescription);
+      console.log("RESULT", result);
       nextPage(result);
     } catch (err) {
       console.log(err);
