@@ -1,7 +1,47 @@
 .App {
   text-align: center;
+  
 }
 
+.seasonings{
+    width: 600px;
+    height: 338px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.logo{
+  width: 25%;
+  height: 25%;
+  padding: 0% 35% 0% 30%;
+  
+}
+
+.title {
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 5vw;
+  letter-spacing: -0.05em;
+  text-align: center;
+  color: #000000;
+  border-radius: 5px;
+  margin: 0 100px;
+  padding: 5% 0% 0% 0%;
+  width: fit-content;
+  
+}
+
+.subtitle{
+  font-family: Rounded Mplus 1c Bold;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2vw;
+  padding-left: 0%;
+  color: #000000;
+  text-align: center;
+}
+s
 .App-logo {
   height: 40vmin;
   pointer-events: none;

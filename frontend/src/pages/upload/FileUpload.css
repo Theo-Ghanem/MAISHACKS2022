@@ -1,0 +1,39 @@
+p {
+    font-family: Rounded Mplus 1c Bold;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 1.5vw;
+    letter-spacing: -0.05em;
+    color: #000000;
+    border-radius: 5px;
+    margin: 0 12px;
+    text-align: center;
+    
+  }
+
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1 em;
+    padding: 1.5%;
+    margin: 2%;
+    align-self: left;
+    font-weight: 500;
+    color: white;
+    background-color: #B3442B;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #A1B251;
+}
+

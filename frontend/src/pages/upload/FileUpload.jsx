@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
+import "./FileUpload.css";
 
 export default function FileUpload({ setFile }) {
   const [selectedFile, setSelectedFile] = useState();
@@ -16,21 +17,18 @@ export default function FileUpload({ setFile }) {
   }, [selectedFile]);
 
   return (
-    <div>
-      <input type="file" name="file" onChange={changeHandler} />
+    <div style={{paddingRight: "10%"}}>
       {isSelected ? (
         <div>
           <p>Filename: {selectedFile.name}</p>
-          <p>Filetype: {selectedFile.type}</p>
-          <p>Size in bytes: {selectedFile.size}</p>
-          <p>
-            lastModifiedDate:{" "}
-            {selectedFile.lastModifiedDate.toLocaleDateString()}
-          </p>
         </div>
       ) : (
-        <p>Select a file to show details</p>
+        <p>Select a file!</p>
+        
       )}
+      <input type="file" class = "inputfile" id="file" name="file" onChange={changeHandler} />
+      <label for="file">Choose a file</label>
+      
     </div>
   );
 }
