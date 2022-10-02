@@ -60,17 +60,18 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "hello.middleware.corsMiddleware",
 ]
 
 ROOT_URLCONF = "gettingstarted.urls"
 
 CORS_ALLOW_ALL_ORIGINS=True
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
