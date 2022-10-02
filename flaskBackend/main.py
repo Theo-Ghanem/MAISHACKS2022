@@ -13,6 +13,7 @@ import openai
 from io import BytesIO
 from utils.insertKeys import finishResume
 from utils.parseDescription import getKeywords
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -29,7 +30,7 @@ def similarity():
     return jsonify(data)
 
 @app.route('/insertKeys', methods = ['POST'])
-@cross_origin
+@cross_origin()
 def insertKeys():
     response = []
     for i in range(len(request.json)):
@@ -37,7 +38,9 @@ def insertKeys():
         response.append(fixedPhrase)
     
     return jsonify(response)
+
 @app.route('/description', methods = ['POST'])
+@cross_origin()
 def parseDesc():
     des = request.json['description']
     response = getKeywords(des)
@@ -80,27 +83,30 @@ def parseDesc():
 #       return text
 
 @app.route('/upload', methods=['POST'])
-@cross_origin
+@cross_origin()
 def upload():
     """Handles the upload of a file."""
     d = {}
-    file = request.files['file_from_react']
-    return "Ofile"
-    # try:
+    output = {}
+    # file = request.files['file_from_react']
+    # return jsonify("Ofile")
+    try:
         
-    #     file = request.files['file_from_react']
-    #     filename = file.filename
-    #     print(f"Uploading file {filename}")
-    #     file_bytes = file.read()
-    #     file_content = BytesIO(file_bytes).readlines()
-    #     print(file_content)
-    #     d['status'] = 1
+        f = request.files['file']
+        f.save(secure_filename(f.filename))
+        print(f"Uploading file {f.filename}")
+        output = parseDocx(secure_filename(f.filename))
+        # file_bytes = file.read()
+        # file_content = BytesIO(file_bytes).readlines()
+        # print(file_content)
+        d['status'] = 1
 
-    # except Exception as e:
-    #     print(f"Couldn't upload file {e}")
-    #     d['status'] = 0
-
-    # return parseDocx(filename)
+    except Exception as e:
+        print("Couldn't upload file {e}"+request.form[0])
+        d['status'] = 0
+        return jsonify("")
+    return redirect("http://localhost:3000/?u="+json.dumps(output, separators=(',', ':')), code=302)
+    # return jsonify(output)
 
 
 # if __name__ == "__main__":

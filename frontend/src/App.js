@@ -1,12 +1,12 @@
 import logo from "./logo.png";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Upload from "./pages/upload";
 import KeywordSelection from "./pages/keywordSelection";
 import seasonings from "./seasonings.png";
 import Correlation from "./pages/correlation";
 import Final from "./pages/final";
-
+import { useLocation } from 'react-router-dom';
 const sampleResume = [
   {
     header: "Education",
@@ -37,15 +37,22 @@ const sampleResume = [
 ];
 
 function App() {
+  const location = useLocation()
+  
   const [pageCounter, setPageCounter] = useState(0);
   const [resume, setResume] = useState(sampleResume);
   const [description, setDescription] = useState(null);
   const [selectedWords, setSelectedWords] = useState([]);
   const [wordList, setWordList] = useState([]);
-
-  const nextPage = (keywords, resume) => {
+  useEffect(()=>{
+    if(location.search.length>0){
+      const thing = JSON.parse(decodeURIComponent(location.search.slice(3)))
+      console.log(thing)
+      setResume(thing)
+    }
+  },[location])
+  const nextPage = (keywords) => {
     setPageCounter(pageCounter + 1);
-    setResume(resume);
     setWordList(keywords);
   };
 
@@ -75,7 +82,7 @@ function App() {
           </div>
         )}
         <img
-          style={{ position: "absolute", bottom: 0, left: 0 }}
+          style={{ position: "absolute", bottom: 0, left: 0,zIndex:0 }}
           className="seasonings"
           src={seasonings}
         ></img>
@@ -96,12 +103,13 @@ function App() {
         {pageCounter === 2 && (
           <Correlation
             wordList={selectedWords}
-            resume={sampleResume}
+            resume={resume}
             goBack={() => setPageCounter(1)}
           />
         )}
         {pageCounter === 3 && <Final goBack={() => setPageCounter(2)} />}
       </div>
+ 
     </div>
   );
 }

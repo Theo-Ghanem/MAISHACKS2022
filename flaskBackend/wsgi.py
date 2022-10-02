@@ -4,12 +4,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 
-app = Flask(__name__)
-CORS(app)
+from main import app
 
-@app.route("/")
-def home_view():
-        return "<h1>Hello World!</h1>"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
