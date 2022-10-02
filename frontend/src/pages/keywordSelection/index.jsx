@@ -51,6 +51,9 @@ export default function KeywordSelection({ goBack, wordList, submitList }) {
       <FormGroup>
         {wordList.map((word) => (
           <FormControlLabel
+            sx={{
+              paddingLeft: "38%",
+            }}
             control={
               <Checkbox
                 sx={{
