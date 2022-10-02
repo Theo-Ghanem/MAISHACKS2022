@@ -22,6 +22,17 @@ export default function Correlation({ wordList, resume, goBack }) {
       };
     });
     const resp = await fillInResume(toSend);
+    const newMatches = matches.map((m) => {
+      const ind = toSend.findIndex((t) => t.paragraph == m.paragraph);
+      if (ind >= 0) {
+        return {
+          ...m,
+          paragraph: toSend[ind].paragraph,
+        };
+      }
+      return m;
+    });
+    setMatches(newMatches);
     console.log(resp);
   };
   const callApi = async () => {
