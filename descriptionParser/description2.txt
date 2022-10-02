@@ -1,0 +1,31 @@
+Given a job description, this program will extract a list of applicable skills to the job\n
+
+Job Description
+
+As an online programmer at Ubisoft Montreal, you will support the production teams by shaping the connected experience of online players. You will design, develop, optimize, deploy, and maintain the systems, features, and services to provide them with an unparalleled multiplayer environment.
+
+With each new iteration, you’ll be committed to answering the most fundamental questions: Can players easily connect? Can the servers support hundreds of thousands of people? Is the connected experience seamless?
+
+Equipped with the latest tools, your reliable and cohesive team will use inventiveness, logic, and will collaborate at every stage of development to answer “yes” to these questions and ultimately accomplish its main mission: deliver the best possible online gaming experience, the experience our players deserve.
+
+What you’ll do
+
+Develop powerful, reliable, and most importantly, fun online systems in collaboration with the gameplay and game design teams.
+Understand existing features and suggest improvements to create the best possible online experience.
+Collaborate with multiple production and production support teams to achieve a common vision.
+Fix bugs and maintain online systems.
+Document your work to make the different functionalities clear.
+Ensure a technological watch so that the studio is always at the forefront of online services.
+
+Qualifications
+
+What you bring
+
+A degree in Computer Science or Software Engineering (or other relevant training)
+Experience developing and optimizing online systems written in C++, C#, GO, Java and Python
+Experience with online systems and services and optimizing online code
+Knowledge of designing connected features with PlayStation Network or Xbox Live (an asset)
+Knowledge of cloud systems such as Kubernetes, AWS, Google Cloud, Microsoft Azure, etc.
+Relational and collaborative skills that allow you to achieve the vision of the game in a harmonious way with the different teams
+A keen sense of rigour and self-reliance, accompanied by a strong thirst for learning
+A creative spirit focused on innovation

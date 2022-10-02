@@ -1,0 +1,14 @@
+Reporting directly to the Software Development Manager, the DevOps is responsible to advocate for DevOps Culture and build the Intelcom’s next-generation logistics technologies.
+The ideal candidate is a strong collaborator and partner positioned within a product delivery team. The candidate understands contemporary cloud technologies, latest DevOps tools and best engineering practices and can write high quality and robust code (infrastructure as code). Thriving in a fast-paced, multidisciplinary environment, the DevOps is working closely with the Tech Lead and the Architect to determine requirements, improve quality, and speed up execution.
+We need our DevOps to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full stack as we continue to push technology forward.
+What is a typical work day?
+Collaborate with key stakeholders, partners, and customers in multiple areas of Intelcom’s organization to meet enterprise needs.
+Supervise execution of deliverables, particularly for large and cross-functional products.
+Analyze, review and modify existing software solutions to increase operating efficiency or meet new requirements.
+Assist product delivery teams by advising on technical Cloud Infrastructure best practices
+Provide technical implementation support including guidance on implementation feasibility of cross-product integrations
+Develop tests and processes to ensure software stability and correctness.
+Work closely with product management team to ensure we're building the best products.
+Contribute to product and project strategy, roadmap definition, and requirements gathering.
+Be accountable for performance, reliability, scalability and resilience of complex and critical infrastructure components for multiple squads (web servers, data stores, hosted services, load balancers, etc.) through the proper use of replication, sharding, load balancing, monitoring, SLAs, alerting, and auto-scaling.
+Upgrade and patch systems as required while ensuring availability of service.
