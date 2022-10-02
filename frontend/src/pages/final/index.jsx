@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
+import ColorButton from "../../components/CustomButton";
 
-export default function Compare({ goBack, submitList }) {
+export default function Final({ goBack }) {
   const [loading, setLoading] = useState(false);
   const [pageCounter, setPageCounter] = useState(2);
   const handleSubmit = () => {
@@ -11,7 +12,7 @@ export default function Compare({ goBack, submitList }) {
   return (
     <div>
       <button onClick={goBack}>Go Back</button>
-      <Button onClick={handleSubmit}>Submit</Button>
+      <ColorButton onClick={handleSubmit}>Submit</ColorButton>
     </div>
   );
 }
