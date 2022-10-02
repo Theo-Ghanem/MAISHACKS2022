@@ -3,7 +3,7 @@ import "./App.css";
 import { useState } from "react";
 import Upload from "./pages/upload";
 import Customize from "./pages/customize";
-import seasonings from "./seasonings.png"
+import seasonings from "./seasonings.png";
 
 const sampleResume = [
   {
@@ -34,6 +34,15 @@ const sampleResume = [
   },
 ];
 
+const sampleWordList = [
+  "Software Engineer",
+  "Web Developer",
+  "Frontend Engineer",
+  "React",
+  "Team Work",
+  "Agile",
+];
+
 function App() {
   const [pageCounter, setPageCounter] = useState(0);
   const [resume, setResume] = useState(null);
@@ -46,29 +55,30 @@ function App() {
   };
 
   return (
-    <div style={{display: "flex" }}>
-        <div style={{width: "60%"}}>
-          <div className="title">
-            <img className="logo" src={logo}></img>
-            Let's Season Your CV!
-          </div>
-          <div className="subtitle">Get started by uploading your CV <br></br> and your job description on the right</div>
+    <div style={{ display: "flex" }}>
+      <div style={{ width: "60%" }}>
+        <div className="title">
+          <img className="logo" src={logo}></img>
+          Let's Season Your CV!
+        </div>
+        <div className="subtitle">
+          Get started by uploading your CV <br></br> and your job description on
+          the right
+        </div>
         <img className="seasonings" src={seasonings}></img>
       </div>
-      
-      <div className="App" style={{width: "40%"}}>
+
+      <div className="App" style={{ width: "40%" }}>
         {pageCounter === 0 && <Upload nextPage={nextPage} />}
         {pageCounter === 1 && (
           <Customize
-            resume={resume}
-            description={description}
+            wordList={sampleWordList}
             goBack={() => setPageCounter(0)}
+            submitList={() => {}}
           />
         )}
       </div>
     </div>
-
-    
   );
 }
 

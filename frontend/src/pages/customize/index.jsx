@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Customize({ goBack, resume, description }) {
+export default function Customize({ goBack, wordList, submitList }) {
   const print = () => {
-    console.log(JSON.stringify(resume));
+    console.log(JSON.stringify(wordList));
   };
   return (
     <div>
