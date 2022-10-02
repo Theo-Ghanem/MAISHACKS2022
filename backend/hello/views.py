@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 from .models import Greeting
 from .utils.parseDocx import parseDocx
@@ -19,4 +19,6 @@ def db(request):
     return render(request, "db.html", {"greetings": greetings})
 
 def upload(request):
-    return parseDocx(request.body.resume)
+    resp = JsonResponse(parseDocx(request.body.resume))
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp
