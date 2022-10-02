@@ -1,9 +1,10 @@
-import { Button, TextField } from "@mui/material";
+import {TextField } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import FileUpload from "./FileUpload";
 import axios from "axios";
-import API from "../../services/API.js";
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 
 export default function Upload({ nextPage }) {
@@ -25,6 +26,16 @@ export default function Upload({ nextPage }) {
     );
     return data;
   };
+
+  const ColorButton = styled(Button)(({ theme }) => ({
+    color: "#000000",
+    backgroundColor:"#A1B251",
+    marginRight: "8%",
+    fontFamily: "Rounded Mplus",
+    '&:hover': {
+      backgroundColor: "#A1B251",
+    },
+  }));
 
   const handleSubmission = async () => {
     setLoading(true);
@@ -66,7 +77,9 @@ export default function Upload({ nextPage }) {
       />
       </div>
       <FileUpload setFile={setFile} />
-      <Button variant="contained" InputProps={{ style: {color: "#A1B251"} }} endIcon={<SendIcon />} onClick={handleSubmission}>Spice It Up!</Button>
+      <br></br>
+      <br></br>
+      <ColorButton variant="contained" InputProps={{ style: {marginLeft: "10%"} }} endIcon={<SendIcon />} onClick={handleSubmission}>Spice It Up!</ColorButton>
     </div>
   );
 }

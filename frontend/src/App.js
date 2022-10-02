@@ -61,10 +61,16 @@ function App() {
           <img className="logo" src={logo}></img>
           Let's Season Your CV!
         </div>
-        <div className="subtitle">
-          Get started by uploading your CV <br></br> and your job description on
-          the right
-        </div>
+        {pageCounter === 0 ? (
+          <div className="subtitle">
+            Get started by uploading your CV <br></br> and your job description
+            on the right
+          </div>
+        ) : (
+          <div className="subtitle">
+            Pick and choose the keywords<br></br>you would like to include
+          </div>
+        )}
         <img className="seasonings" src={seasonings}></img>
       </div>
 
