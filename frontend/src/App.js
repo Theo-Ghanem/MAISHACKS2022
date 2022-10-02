@@ -2,7 +2,7 @@ import logo from "./logo.png";
 import "./App.css";
 import { useState } from "react";
 import Upload from "./pages/upload";
-import Customize from "./pages/keywordSelection";
+import Customize from "./pages/customize";
 import seasonings from "./seasonings.png";
 
 const sampleResume = [
