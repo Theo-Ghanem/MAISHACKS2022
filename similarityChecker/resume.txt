@@ -1,0 +1,49 @@
+BO CAKMAK
+915–412-6526
+Sr. Python Software Engineer
+bocakmak@gmail.com
+LANGUAGES, LIBRARIES & FRAMEWORKS
+•	Adept: Python, PHP, MySQL, SOQL, Pandas, Git
+•	Proficient: Shell, JS, CSS, AngularJS, Twitter Bootstrap, Django, Flask, Numpy, SQLAlchemy
+•	Knowledgeable:  Java, Jython, C, C++, C for Arduino, Golang
+EXPERIENCE
+AppNexus, Inc. | New York, NY							08/2015 - present
+Sr. Python Software Engineer
+•	Create, test and maintain Python applications for financial reporting and forecasting. 
+•	Develop, test and manage Python applications to automate the ETL process between varying data sources and Vertica enterprise data warehouses. 
+•	Handle ad-hoc data extraction and reporting requests using Python and bash scripting. 
+•	Build front-end reporting dashboards using Twitter Bootstrap, AngularJS and D3 javascript libraries in conjunction with Python Flask.
+
+GoGoTech II, LLC | New York, NY							06/2012 – 03/2015
+Director of Natural Search
+•	Design and develop an automated application using Python, MSSQL, AngularJS, and Twitter Bootstrap to generate Google Shopping feeds from in-house inventory data.
+•	Write scripts to automate merging in-house profit and attribution data with Google Analytics Core Reporting eCommerce data using Python, and SQL.
+•	Develop Python scripts to interface with Amazon, eBay, BBYOpen, and Walmart APIs to match in-house product data against existing catalog data for marketplace feed submissions, resulting in a 15% performance increase.
+
+GoGoTech, Inc | New York, NY							09/2010 – 06/2012
+Director of Natural Search
+•	Create scalable SEO strategies and implementation plans that resulted in 25% year over year incremental growth in natural search traffic and revenue for over 100 brands.
+•	Manage the setup and monitoring of Google and Bing webmaster tools accounts.
+•	Coordinate with UX, Content, and Technology departments to ensure proper SEO tactical implementation.
+Yellowbook USA | King of Prussia, PA						10/2008 – 09/2010
+SEO Manager
+•	Develop small and medium sized SEO product offerings.
+•	Drive all strategic initiatives for Yellowbook.com SEO resulting in 11% year over year natural search traffic growth.
+•	Develop tools in PHP, JavaScript, CSS, XML, and HTML for keyword list generation, sitemaps creation and performance monitoring.
+•	Manage the setup and monitoring of Google and Bing webmaster tools accounts across over 100 domains and sub-domains.
+
+Acronym Media | New York, NY							12/2007 – 09/2008
+SEO Strategist
+•	Create SEO strategies for the optimization of fortune 100 client websites resulting in incremental increases in keyword ranking position.
+•	Document SEO Best Practice Guides for client in-house distribution.
+•	Code PHP and JS scripts for tracking code validation and on-site SEO recommendations validation.
+
+Zeta Interactive (DigitalGrit) | New York, NY					03/2006 – 04/2007
+SEO Manager
+•	Manage the SEO for over 30 accounts consisting of both SMB, and Fortune 500 clients.
+•	Successfully growing managed account natural search traffic incrementally month over month.
+•	Use Excel, Macros, PHP and MySQL to create performance reports outlining both keyword ranking and traffic increase.
+
+EDUCATION
+DeVry University | North Brunswick, NJ						1997-1999
+Associates in Applied Science in Telecommunications Management

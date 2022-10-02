@@ -1,0 +1,20 @@
+ Example of Python Developer Job Description
+Our company is growing rapidly and is looking for a python developer. To join our growing team, please review the list of responsibilities and qualifications.
+Responsibilities for python developer
+•	Carry out strong technical expertise
+•	Integrate implementation of security and data protection into the development lifecycle
+•	Design and write production-ready code and unit tests
+•	Re-architect existing systems and optimizing system structures
+•	Develop innovative user interfaces, including data visualizations
+•	Create real-time and low-latency event processing
+•	Contribute to open-source software
+•	Communicate with the customer to clarify requirements
+•	Integrate with other clients’ systems and applications
+•	Support users of the developed system
+Qualifications for python developer
+•	Strong communication skills and a positive way of working with colleagues and
+•	Financial Services experience is beneficial, preferably within Basel Capital, Credit Risk or Market Risk
+•	Experience in of the following Athena / Quartz / SecDB Development and understanding of Core architecture/design
+•	Bond Analytics Knowledge
+•	Web Service and API design and development
+•	Expertise in developing and fine tuning backend running on Python development framework (like Django ) and Apache/MySQL is required
