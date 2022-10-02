@@ -46,22 +46,22 @@ if not IS_HEROKU:
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
-    "corsheaders",
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "hello",
 ]
 
 MIDDLEWARE= [
-    "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -69,9 +69,9 @@ MIDDLEWARE= [
 ]
 
 ROOT_URLCONF = "gettingstarted.urls"
-
-CORS_ORIGINS_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
 CORS_EXPOSE_HEADERS = ["Set-cookie", "Vary", "Date"]
 CORS_ALLOW_HEADERS = list(default_headers)
 CORS_ALLOW_METHODS = (
