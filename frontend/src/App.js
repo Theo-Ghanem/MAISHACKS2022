@@ -4,6 +4,7 @@ import { useState } from "react";
 import Upload from "./pages/upload";
 import Customize from "./pages/customize";
 import seasonings from "./seasonings.png";
+import Correlation from "./pages/correlation";
 
 const sampleResume = [
   {
@@ -44,8 +45,8 @@ const sampleWordList = [
 ];
 
 function App() {
-  const [pageCounter, setPageCounter] = useState(0);
-  const [resume, setResume] = useState(null);
+  const [pageCounter, setPageCounter] = useState(2);
+  const [resume, setResume] = useState(sampleResume);
   const [description, setDescription] = useState(null);
 
   const nextPage = (res) => {
@@ -81,6 +82,13 @@ function App() {
             wordList={sampleWordList}
             goBack={() => setPageCounter(0)}
             submitList={() => {}}
+          />
+        )}
+        {pageCounter === 2 && (
+          <Correlation
+            wordList={sampleWordList}
+            resume={resume}
+            goBack={() => setPageCounter(1)}
           />
         )}
       </div>

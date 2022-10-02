@@ -1,2 +1,6 @@
 gunicorn
 flask
+sentence-transformers
+torch
+transformers
+flask-cors
