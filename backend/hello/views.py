@@ -5,8 +5,8 @@ from .models import Greeting
 from utils.parseDocx import parseDocx
 # Create your views here.
 def index(request):
-    # return HttpResponse('Hello from Python!')
-    return render(request, "index.html")
+    return HttpResponse('Hello from Python!')
+    # return render(request, "index.html")
 
 
 def db(request):
