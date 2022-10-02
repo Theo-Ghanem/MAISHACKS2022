@@ -2,7 +2,13 @@
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from flask import Flask, flash, request, redirect, url_for, session
+import os
+from numpy import append
 from utils.similarities import getSimilarity
+from utils.parseDocx import parseDocx
+from werkzeug.utils import secure_filename
+import openai
 
 app = Flask(__name__)
 CORS(app)
@@ -16,6 +22,16 @@ def home_view():
 def similarity():
     data = getSimilarity(request.json['words'], request.json['sentences'])
     return jsonify(data)
+
+@app.route('/insertKeys', methods = ['POST'])
+def insertKeys():
+    response = []
+    for i in range(len(request.json)):
+        req = insertKeys(request.json[i]['words'], request.json[i]['paragraph'])
+        fixedPhrase = openai.Completion.create(model="text-davinci-002", prompt=req, temperature=0, max_tokens=100)
+        response.append(fixedPhrase)
+    
+    return jsonify(response)
 # import os
 # from flask import Flask, flash, request, redirect, url_for, session
 # from werkzeug.utils import secure_filename
@@ -26,12 +42,9 @@ def similarity():
 
 # logger = logging.getLogger('HELLO WORLD')
 
+# UPLOAD_FOLDER = '/frontend/src/files'
+# ALLOWED_EXTENSIONS = set(['docx', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
-
-# UPLOAD_FOLDER = '/path/to/the/uploads'
-# ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
-
-# app = Flask(__name__)
 # app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # @app.route('/upload', methods=['POST'])
@@ -39,14 +52,23 @@ def similarity():
 #     target=os.path.join(UPLOAD_FOLDER,'test_docs')
 #     if not os.path.isdir(target):
 #         os.mkdir(target)
-#     logger.info("welcome to upload`")
+#     # logger.info("welcome to upload`")
 #     file = request.files['file'] 
 #     filename = secure_filename(file.filename)
 #     destination="/".join([target, filename])
 #     file.save(destination)
 #     session['uploadFilePath']=destination
-#     response="Whatever you wish too return"
+#     response="Whatever you wish to return"
 #     return response
+
+@app.route('/upload', methods = ['GET', 'POST'])
+def fileUpload():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save(secure_filename(f.filename))
+      text = parseDocx('')
+      return text
+
 
 # if __name__ == "__main__":
 #     app.secret_key = os.urandom(24)
