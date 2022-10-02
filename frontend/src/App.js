@@ -47,7 +47,7 @@ function App() {
 
   return (
     <div style={{display: "flex" }}>
-        <div>
+        <div style={{width: "60%"}}>
           <div className="title">
             <img className="logo" src={logo}></img>
             Let's Season Your CV!
@@ -56,7 +56,7 @@ function App() {
         <img className="seasonings" src={seasonings}></img>
       </div>
       
-      <div className="App">
+      <div className="App" style={{width: "40%"}}>
         {pageCounter === 0 && <Upload nextPage={nextPage} />}
         {pageCounter === 1 && (
           <Customize

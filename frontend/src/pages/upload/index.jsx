@@ -37,7 +37,8 @@ export default function Upload({ nextPage }) {
       //     formDataObj,
       //     jobDescription
       //   );
-      const result = await sendForm();
+      //const result = await sendForm();
+      const result = true;
       console.log("RESULT", JSON.stringify(result));
       nextPage(result);
     } catch (err) {
@@ -52,20 +53,20 @@ export default function Upload({ nextPage }) {
   }
   return (
     <div style={{ paddingTop: "10px" }}>
-      <div style={{ backgroundColor: "#B3442B", marginTop: "30px", marginRight: "100px", width: "400px" }}>
+      <div style={{ backgroundColor: "#B3442B", marginTop: "30px", marginRight: "0%", width: "90%", alignItems: "center"}}>
       <TextField fullWidth
-        InputProps={{ style: {fontFamily: "Rounded Mplus", textAlign: "center", fontSize: "20"} }}
+        InputProps={{ style: {fontFamily: "Rounded Mplus", paddingTop: "8%", textAlign: "center", fontSize: "20"} }}
         onChange={(e) => setJobDescription(e.target.value)}
         id="outlined-multiline-static"
         label=""
         background-color = "#282c34"
         multiline
         rows={10}
-        defaultValue="Upload your file here"
+        defaultValue="Replace this text with your dream job description :)"
       />
       </div>
       <FileUpload setFile={setFile} />
-      <Button variant="contained" color="success" endIcon={<SendIcon />} onClick={handleSubmission}>Spice It Up!</Button>
+      <Button variant="contained" InputProps={{ style: {color: "#A1B251"} }} endIcon={<SendIcon />} onClick={handleSubmission}>Spice It Up!</Button>
     </div>
   );
 }

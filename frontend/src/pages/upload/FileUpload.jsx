@@ -17,15 +17,18 @@ export default function FileUpload({ setFile }) {
   }, [selectedFile]);
 
   return (
-    <div>
-      <input type="file" name="file" onChange={changeHandler} />
+    <div style={{paddingRight: "10%"}}>
       {isSelected ? (
         <div>
           <p>Filename: {selectedFile.name}</p>
         </div>
       ) : (
         <p>Select a file!</p>
+        
       )}
+      <input type="file" class = "inputfile" id="file" name="file" onChange={changeHandler} />
+      <label for="file">Choose a file</label>
+      
     </div>
   );
 }
