@@ -14,7 +14,6 @@ import dj_database_url
 import os
 from django.test.runner import DiscoverRunner
 from pathlib import Path
-import django_heroku
 from corsheaders.defaults import default_headers
 
 
@@ -38,7 +37,7 @@ if 'SECRET_KEY' in os.environ:
 if IS_HEROKU:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ["*"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if not IS_HEROKU:
