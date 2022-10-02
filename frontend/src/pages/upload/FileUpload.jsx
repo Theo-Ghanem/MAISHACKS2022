@@ -23,7 +23,7 @@ export default function FileUpload({ setFile }) {
           <p>Filename: {selectedFile.name}</p>
         </div>
       ) : (
-        <p>Select a file!</p>
+        <p>Upload your resume below!</p>
         
       )}
       <input type="file" class = "inputfile" id="file" name="file" onChange={changeHandler} />

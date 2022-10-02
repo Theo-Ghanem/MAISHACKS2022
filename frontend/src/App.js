@@ -3,7 +3,7 @@ import "./App.css";
 import { useState } from "react";
 import Upload from "./pages/upload";
 import Customize from "./pages/customize";
-import seasonings from "./seasonings.png"
+import seasonings from "./seasonings.png";
 
 const sampleResume = [
   {
@@ -46,17 +46,26 @@ function App() {
   };
 
   return (
-    <div style={{display: "flex" }}>
-        <div style={{width: "60%"}}>
-          <div className="title">
-            <img className="logo" src={logo}></img>
-            Let's Season Your CV!
+    <div style={{ display: "flex" }}>
+      <div style={{ width: "60%" }}>
+        <div className="title">
+          <img className="logo" src={logo}></img>
+          Let's Season Your CV!
+        </div>
+        {pageCounter === 0 ? (
+          <div className="subtitle">
+            Get started by uploading your CV <br></br> and your job description
+            on the right
           </div>
-          <div className="subtitle">Get started by uploading your CV <br></br> and your job description on the right</div>
+        ) : (
+          <div className="subtitle">
+            Pick and choose the keywords<br></br>you would like to include
+          </div>
+        )}
         <img className="seasonings" src={seasonings}></img>
       </div>
-      
-      <div className="App" style={{width: "40%"}}>
+
+      <div className="App" style={{ width: "40%" }}>
         {pageCounter === 0 && <Upload nextPage={nextPage} />}
         {pageCounter === 1 && (
           <Customize
@@ -67,8 +76,6 @@ function App() {
         )}
       </div>
     </div>
-
-    
   );
 }
 
