@@ -2,7 +2,6 @@ import {TextField } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import FileUpload from "./FileUpload";
-import axios from "axios";
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
@@ -15,15 +14,16 @@ export default function Upload({ nextPage }) {
   const sendForm = async () => {
     var formData = new FormData();
     formData.append("File", file);
-    const { data } = await axios.post(
-      "https://localhost:5000/upload/",
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    fetch('http://localhost:5000/upload', {
+      method: 'POST',
+      body: data,
+    }).then((response) => {
+      response.json().then((body) => {
+       console.log(body)
+      });
+    });
+  
+
     return data;
   };
 
@@ -48,8 +48,7 @@ export default function Upload({ nextPage }) {
       //     formDataObj,
       //     jobDescription
       //   );
-      //const result = await sendForm();
-      const result = true;
+      const result = await sendForm();
       console.log("RESULT", JSON.stringify(result));
       nextPage(result);
     } catch (err) {
