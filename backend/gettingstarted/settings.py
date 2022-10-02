@@ -47,6 +47,7 @@ if not IS_HEROKU:
 
 INSTALLED_APPS = [
     "corsheaders",
+    'rest_framework',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -71,6 +72,7 @@ MIDDLEWARE= [
 ROOT_URLCONF = "gettingstarted.urls"
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = ['https://localhost:3000', 'http://localhost:3000', 'https://localhost:8000', 'http://localhost:8000']
 
 CORS_EXPOSE_HEADERS = ["Set-cookie", "Vary", "Date"]
 CORS_ALLOW_HEADERS = list(default_headers)
@@ -82,6 +84,23 @@ CORS_ALLOW_METHODS = (
     'POST',
     'PUT',
 )
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'app_api': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
+
 
 TEMPLATES = [
     {
@@ -178,3 +197,6 @@ if "CI" in os.environ:
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
