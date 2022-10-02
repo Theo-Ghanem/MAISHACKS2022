@@ -4,3 +4,6 @@ sentence-transformers
 torch
 transformers
 flask-cors
+python-docx
+openai
+cohere
