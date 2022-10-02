@@ -1,16 +1,18 @@
 #app/main.py
 
 from urllib import response
-from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
-from flask import Flask, flash, request, redirect, url_for, session
+from flask import Flask, flash, request, redirect, url_for, session, jsonify
 import os
 from numpy import append
 from utils.similarities import getSimilarity
 from utils.parseDocx import parseDocx
 from werkzeug.utils import secure_filename
+import openai
+from io import BytesIO
 from utils.insertKeys import finishResume
 from utils.parseDescription import getKeywords
+
 
 app = Flask(__name__)
 CORS(app)
@@ -27,7 +29,7 @@ def similarity():
     return jsonify(data)
 
 @app.route('/insertKeys', methods = ['POST'])
-@cross_origin()
+@cross_origin
 def insertKeys():
     response = []
     for i in range(len(request.json)):
@@ -70,13 +72,35 @@ def parseDesc():
 #     response="Whatever you wish to return"
 #     return response
 
-@app.route('/upload', methods = ['GET', 'POST'])
-def fileUpload():
-   if request.method == 'POST':
-      f = request.files['file']
-      f.save(secure_filename(f.filename))
-      text = parseDocx('')
-      return text
+# @app.route('/upload', methods = ['GET', 'POST'])
+# def fileUpload():
+#    if request.method == 'POST':
+#       f = request.files['file']
+#       f.save(secure_filename(f.filename))
+#       text = parseDocx('')
+#       return text
+
+@app.route('/upload', methods=['POST'])
+@cross_origin()
+def uploadResume():
+    # d = {}
+    file = request.files
+    return file
+    # try:
+        
+    #     file = request.files['file_from_react']
+    #     filename = file.filename
+    #     print(f"Uploading file {filename}")
+    #     file_bytes = file.read()
+    #     file_content = BytesIO(file_bytes).readlines()
+    #     print(file_content)
+    #     d['status'] = 1
+
+    # except Exception as e:
+    #     print(f"Couldn't upload file {e}")
+    #     d['status'] = 0
+
+    # return parseDocx(filename)
 
 
 # if __name__ == "__main__":

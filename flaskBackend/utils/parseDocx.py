@@ -17,8 +17,8 @@ def allCharactersSame(s) :
 def removeExtras(text): 
     return text.replace(u'\xa0', u' ')
     
-def parseDocx(path):
-    document = Document(path)
+def parseDocx(name):
+    document = Document(name)
 
     # text_dct = {}
     # sub_dct = {}

@@ -7,12 +7,21 @@ export const uploadDescription = async (description) => {
   return await httpMethods.post("/description", { description });
 };
 export const uploadResumeAndDescription = async (resume, description) => {
-  console.log("seinding resume", resume);
+  console.log("sending resume", resume);
   return await httpMethods.post("/upload", {
     resume,
     description,
   });
 };
+
+export const upload = async (resume) => {
+  console.log("sending resume", resume);
+  return await httpMethods.post("/upload", {
+    resume
+  });
+};
+
+
 export const getCorrelation = async (wordList, paragraphs) => {
   return await httpMethods.post("/similarity", {
     words: wordList,
