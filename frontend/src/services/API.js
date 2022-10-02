@@ -9,5 +9,11 @@ export const uploadResumeAndDescription = async (resume, description) => {
     description,
   });
 };
+export const getCorrelation = async (wordList, paragraphs) => {
+  return await httpMethods.post("/similarity", {
+    words: wordList,
+    sentences: paragraphs,
+  });
+};
 export const getFinalResume = async () => {};
 export default { uploadResumeAndDescription, getFinalResume };
