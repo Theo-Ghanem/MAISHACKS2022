@@ -29,14 +29,14 @@ export default function Section({
   };
   return (
     <div>
-      <h1>{header}</h1>
+      <h1 style={{ marginLeft: "250px" }}>{header}</h1>
       {content.map((position) => (
         <div style={{ display: "flex" }}>
           <div
             style={{
-              width: "150px",
-              maxWidth: "150px",
-              minWidth: "150px",
+              width: "250px",
+              maxWidth: "250px",
+              minWidth: "250px",
               paddingTop: "40px",
             }}
           >

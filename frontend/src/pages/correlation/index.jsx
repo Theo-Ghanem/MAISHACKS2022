@@ -5,7 +5,12 @@ import Section from "./Section";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 
-export default function Correlation({ wordList, resume, goBack }) {
+export default function Correlation({
+  wordList,
+  resume,
+  goBack,
+  submitResumeUpdates,
+}) {
   const [paragraphs, setParagraphs] = React.useState([]);
   const [correlations, setCorrelations] = React.useState([]);
   const [matches, setMatches] = React.useState([]);
@@ -22,7 +27,16 @@ export default function Correlation({ wordList, resume, goBack }) {
       };
     });
     const resp = await fillInResume(toSend);
-    console.log(resp);
+    const newMatches = toSend.map((sending) => {
+      const ind = toSend.findIndex((t) => t.paragraph == sending.paragraph);
+
+      return {
+        old: sending.paragraph,
+        paragraph: resp[ind],
+      };
+    });
+    console.log("new matches", newMatches);
+    submitResumeUpdates(newMatches);
   };
   const callApi = async () => {
     const paragraphs = resume

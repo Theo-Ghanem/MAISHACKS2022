@@ -7,11 +7,17 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import ColorButton from "../../components/CustomButton";
 import { uploadDescription } from "../../services/API";
+import { useEffect } from "react";
+import NewUploadFile from "./NewUploadFile";
 
 export default function Upload({ nextPage }) {
   const [file, setFile] = useState();
   const [jobDescription, setJobDescription] = useState();
   const [loading, setLoading] = useState(false);
+
+  useEffect(()=>{
+    sendForm()
+  },[file])
 
   const sendForm = async () => {
     var formData = new FormData();
@@ -19,9 +25,11 @@ export default function Upload({ nextPage }) {
     fetch("http://localhost:5000/upload", {
       method: "POST",
       body: formData,
+      headers:{"Content-Type":"multipart/form-data; boundary=----WebKitFormBoundary61K7kbVkPULgQtg7","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"}
     }).then((response) => {
+      console.log("Got a response",response)
       response.json().then((body) => {
-        console.log(body);
+        console.log("response is ",body);
       });
     });
 
@@ -51,7 +59,7 @@ export default function Upload({ nextPage }) {
   const newSubmission = async () => {
     const resp = await uploadDescription(jobDescription);
     console.log(resp);
-    nextPage(resp, null);
+    nextPage(resp);
   };
 
   if (loading) {
@@ -87,7 +95,8 @@ export default function Upload({ nextPage }) {
           placeholder="Replace this text with your dream job description :)"
         />
       </div>
-      <FileUpload setFile={setFile} />
+      {/* <FileUpload setFile={setFile} /> */}
+      <NewUploadFile/>
       <br></br>
       <br></br>
       <ColorButton

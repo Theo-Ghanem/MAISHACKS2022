@@ -42,7 +42,7 @@ export default function FileUpload({ setFile }) {
     if (file != null) {
       const data = new FormData();
       data.append('file_from_react', file);
-      console.log("GETTING HERE")
+      console.log("GETTING HERE", data)
   
       const response = await upload(data)
       // let response = await fetch('/upload',

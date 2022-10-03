@@ -1,12 +1,12 @@
 import logo from "./logo.png";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Upload from "./pages/upload";
 import KeywordSelection from "./pages/keywordSelection";
 import seasonings from "./seasonings.png";
 import Correlation from "./pages/correlation";
 import Final from "./pages/final";
-
+import { useLocation } from "react-router-dom";
 const sampleResume = [
   {
     header: "Education",
@@ -37,51 +37,79 @@ const sampleResume = [
 ];
 
 function App() {
+  const location = useLocation();
+
   const [pageCounter, setPageCounter] = useState(0);
   const [resume, setResume] = useState(sampleResume);
   const [description, setDescription] = useState(null);
   const [selectedWords, setSelectedWords] = useState([]);
   const [wordList, setWordList] = useState([]);
 
-  const nextPage = (keywords, resume) => {
+  const submitResumeUpdates = (updates) => {
+    const newThing = resume.map((category) => ({
+      header: category.header,
+      content: category.content.map((position) => {
+        let newDesc = position.description;
+        const newD = updates.find((u) => u.old == newDesc);
+        if (newD) {
+          newDesc = newD.paragraph;
+        }
+        return {
+          ...position,
+          description: newDesc,
+        };
+      }),
+    }));
+    console.log(newThing);
+    setResume(newThing);
+  };
+  useEffect(() => {
+    if (location.search.length > 0) {
+      const thing = JSON.parse(decodeURIComponent(location.search.slice(3)));
+      console.log(thing);
+      setResume(thing);
+    }
+  }, [location]);
+  const nextPage = (keywords) => {
     setPageCounter(pageCounter + 1);
-    setResume(resume);
     setWordList(keywords);
   };
 
   return (
     <div style={{ display: "flex" }}>
-      <div style={{ width: "60%" }}>
-        {pageCounter === 0 ? (
-          <div>
-            <div className="title">
-              <img className="logo" src={logo}></img>
-              Let's Season Your CV!
+      {pageCounter !== 2 && (
+        <div style={{ width: "60%" }}>
+          {pageCounter === 0 ? (
+            <div>
+              <div className="title">
+                <img className="logo" src={logo}></img>
+                Let's Season Your CV!
+              </div>
+              <div className="subtitle">
+                Get started by uploading your CV <br></br> and your job
+                description on the right
+              </div>
             </div>
-            <div className="subtitle">
-              Get started by uploading your CV <br></br> and your job
-              description on the right
+          ) : (
+            <div>
+              <div style={{ display: "flex" }}>
+                <img className="logo2" src={logo}></img>
+                <div className="title2">Season My CV</div>
+              </div>
+              <div className="subtitle2">
+                Pick and choose the keywords<br></br>you would like to include
+              </div>
             </div>
-          </div>
-        ) : (
-          <div>
-            <div style={{ display: "flex" }}>
-              <img className="logo2" src={logo}></img>
-              <div className="title2">Season My CV</div>
-            </div>
-            <div className="subtitle2">
-              Pick and choose the keywords<br></br>you would like to include
-            </div>
-          </div>
-        )}
-        <img
-          style={{ position: "absolute", bottom: 0, left: 0 }}
-          className="seasonings"
-          src={seasonings}
-        ></img>
-      </div>
+          )}
+          <img
+            style={{ position: "absolute", bottom: 0, left: 0, zIndex: 0 }}
+            className="seasonings"
+            src={seasonings}
+          ></img>
+        </div>
+      )}
 
-      <div className="App" style={{ width: "40%" }}>
+      <div className="App" style={{ flexGrow: 1 }}>
         {pageCounter === 0 && <Upload nextPage={nextPage} />}
         {pageCounter === 1 && (
           <KeywordSelection
@@ -96,12 +124,14 @@ function App() {
         {pageCounter === 2 && (
           <Correlation
             wordList={selectedWords}
-            resume={sampleResume}
+            submitResumeUpdates={submitResumeUpdates}
+            resume={resume}
             goBack={() => setPageCounter(1)}
           />
         )}
         {pageCounter === 3 && <Final goBack={() => setPageCounter(2)} />}
       </div>
+      {/* <div>{JSON.stringify(resume, null, 2)}</div> */}
     </div>
   );
 }
