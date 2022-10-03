@@ -62,6 +62,25 @@ function App() {
   const [description, setDescription] = useState(null);
   const [selectedWords, setSelectedWords] = useState([]);
   const [wordList, setWordList] = useState([]);
+
+  const submitResumeUpdates = (updates) => {
+    const newThing = resume.map((category) => ({
+      header: category.header,
+      content: category.content.map((position) => {
+        let newDesc = position.description;
+        const newD = updates.find((u) => u.old == newDesc);
+        if (newD) {
+          newDesc = newD.paragraph;
+        }
+        return {
+          ...position,
+          description: newDesc,
+        };
+      }),
+    }));
+    console.log(newThing);
+    setResume(newThing);
+  };
   useEffect(() => {
     if (location.search.length > 0) {
       const thing = JSON.parse(decodeURIComponent(location.search.slice(3)));
@@ -76,37 +95,39 @@ function App() {
 
   return (
     <div style={{ display: "flex" }}>
-      <div style={{ width: "60%" }}>
-        {pageCounter === 0 ? (
-          <div>
-            <div className="title">
-              <img className="logo" src={logo}></img>
-              Let's Season Your CV!
+      {pageCounter !== 2 && (
+        <div style={{ width: "60%" }}>
+          {pageCounter === 0 ? (
+            <div>
+              <div className="title">
+                <img className="logo" src={logo}></img>
+                Let's Season Your CV!
+              </div>
+              <div className="subtitle">
+                Get started by uploading your CV <br></br> and your job
+                description on the right
+              </div>
             </div>
-            <div className="subtitle">
-              Get started by uploading your CV <br></br> and your job
-              description on the right
+          ) : (
+            <div>
+              <div style={{ display: "flex" }}>
+                <img className="logo2" src={logo}></img>
+                <div className="title2">Season My CV</div>
+              </div>
+              <div className="subtitle2">
+                Pick and choose the keywords<br></br>you would like to include
+              </div>
             </div>
-          </div>
-        ) : (
-          <div>
-            <div style={{ display: "flex" }}>
-              <img className="logo2" src={logo}></img>
-              <div className="title2">Season My CV</div>
-            </div>
-            <div className="subtitle2">
-              Pick and choose the keywords<br></br>you would like to include
-            </div>
-          </div>
-        )}
-        <img
-          style={{ position: "absolute", bottom: 0, left: 0, zIndex: 0 }}
-          className="seasonings"
-          src={seasonings}
-        ></img>
-      </div>
+          )}
+          <img
+            style={{ position: "absolute", bottom: 0, left: 0, zIndex: 0 }}
+            className="seasonings"
+            src={seasonings}
+          ></img>
+        </div>
+      )}
 
-      <div className="App" style={{ width: "40%" }}>
+      <div className="App" style={{ flexGrow: 1 }}>
         {pageCounter === 0 && <Upload nextPage={nextPage} />}
         {pageCounter === 1 && (
           <KeywordSelection
@@ -121,6 +142,7 @@ function App() {
         {pageCounter === 2 && (
           <Correlation
             wordList={selectedWords}
+            submitResumeUpdates={submitResumeUpdates}
             resume={resume}
             submitResumeUpdates={submitResumeUpdates}
             goBack={() => setPageCounter(1)}
@@ -128,6 +150,7 @@ function App() {
         )}
         {pageCounter === 3 && <Final goBack={() => setPageCounter(2)} />}
       </div>
+      {/* <div>{JSON.stringify(resume, null, 2)}</div> */}
     </div>
   );
 }

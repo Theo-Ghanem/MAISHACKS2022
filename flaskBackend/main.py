@@ -1,9 +1,8 @@
 #app/main.py
 
 from urllib import response
-from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
-from flask import Flask, flash, request, redirect, url_for, session
+from flask import Flask, flash, request, redirect, url_for, session, jsonify
 import os
 from numpy import append
 from utils.similarities import getSimilarity
@@ -14,6 +13,7 @@ from io import BytesIO
 from utils.insertKeys import finishResume
 from utils.parseDescription import getKeywords
 import json
+
 
 app = Flask(__name__)
 CORS(app)
