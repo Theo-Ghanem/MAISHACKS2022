@@ -6,7 +6,7 @@ import KeywordSelection from "./pages/keywordSelection";
 import seasonings from "./seasonings.png";
 import Correlation from "./pages/correlation";
 import Final from "./pages/final";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 const sampleResume = [
   {
     header: "Education",
@@ -37,20 +37,38 @@ const sampleResume = [
 ];
 
 function App() {
-  const location = useLocation()
-  
+  const location = useLocation();
+
   const [pageCounter, setPageCounter] = useState(0);
   const [resume, setResume] = useState(sampleResume);
+  const submitResumeUpdates = (updates) => {
+    setResume(
+      resume.map((category) => ({
+        header: category.header,
+        content: category.content.map((position) => {
+          let description = position.description;
+          const newD = updates.find((u) => u.old == description);
+          if (newD) {
+            description = newD.description;
+          }
+          return {
+            ...position,
+            description,
+          };
+        }),
+      }))
+    );
+  };
   const [description, setDescription] = useState(null);
   const [selectedWords, setSelectedWords] = useState([]);
   const [wordList, setWordList] = useState([]);
-  useEffect(()=>{
-    if(location.search.length>0){
-      const thing = JSON.parse(decodeURIComponent(location.search.slice(3)))
-      console.log(thing)
-      setResume(thing)
+  useEffect(() => {
+    if (location.search.length > 0) {
+      const thing = JSON.parse(decodeURIComponent(location.search.slice(3)));
+      console.log(thing);
+      setResume(thing);
     }
-  },[location])
+  }, [location]);
   const nextPage = (keywords) => {
     setPageCounter(pageCounter + 1);
     setWordList(keywords);
@@ -82,7 +100,7 @@ function App() {
           </div>
         )}
         <img
-          style={{ position: "absolute", bottom: 0, left: 0,zIndex:0 }}
+          style={{ position: "absolute", bottom: 0, left: 0, zIndex: 0 }}
           className="seasonings"
           src={seasonings}
         ></img>
@@ -104,12 +122,12 @@ function App() {
           <Correlation
             wordList={selectedWords}
             resume={resume}
+            submitResumeUpdates={submitResumeUpdates}
             goBack={() => setPageCounter(1)}
           />
         )}
         {pageCounter === 3 && <Final goBack={() => setPageCounter(2)} />}
       </div>
- 
     </div>
   );
 }
